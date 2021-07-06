@@ -1,0 +1,84 @@
+﻿@page "/edit-order/{client_id}"
+
+@layout MainLayout
+@inherits FirmaCurierat.Pages.EditOrderComponent
+
+@using Radzen
+@using Radzen.Blazor
+@using Syncfusion.Blazor.Grids
+@using Radzen.Blazor
+
+@using Syncfusion.Blazor.Cards
+@using Syncfusion.Blazor.DropDowns
+@using Syncfusion.Blazor
+@using Syncfusion.Blazor.Popups
+@using Syncfusion.Blazor.Navigations
+@using Syncfusion.Blazor.Notifications
+
+<RadzenHeading Size="H5" Text="Edit order" Style="font-size:x-large;margin-top:60px; font-weight:bold;">
+
+</RadzenHeading>
+
+<hr />
+<br />
+
+<RadzenCard Style="margin-top:70px;">
+    <RadzenContent Container="main">
+        <ChildContent>
+            <div class="row">
+                <div class="col-md-12">
+
+
+                    <div style="margin-bottom: 1rem" class="row">
+                        <div class="col-md-3">
+                            <RadzenLabel Component="Nume" style="font-weight: bold; font-size: medium;" Text="Data livrare">
+                            </RadzenLabel>
+                        </div>
+                        <div class="col-md-8" style="margin-left:-100px;">
+                            <RadzenTextBox MaxLength="255" style="width: 380px" @bind-Value="@(comanda.data_livrare)" Name="data">
+                            </RadzenTextBox>
+
+                        </div>
+                    </div>
+                    <div style="margin-bottom: 1rem" class="row">
+                        <div class="col-md-3">
+                            <RadzenLabel Component="surname" style="font-weight: bold; font-size: medium;" Text="AWB">
+                            </RadzenLabel>
+                        </div>
+                        <div class="col-md-8" style="margin-left:-100px;">
+                            <RadzenTextBox MaxLength="255" style="width: 380px" @bind-Value="@(comanda.awb)" Name="awb">
+                            </RadzenTextBox>
+
+                        </div>
+                    </div>
+
+                    <div style="margin-bottom: 1rem" class="row">
+                        <div class="col-md-3">
+                            <RadzenLabel Component="type" style="font-size: medium; font-weight:bold" Text="Order Type:">
+                            </RadzenLabel>
+                        </div>
+                        <div class="col-md-3" style="margin-left:-100px;">
+
+                            <Syncfusion.Blazor.DropDowns.SfDropDownList Placeholder="Select a type..." TValue="int" TItem="Models.FirmaCurierat.TipComenzi" @bind-Value="@tip_selected.id_tip" DataSource="@tip" Width="380px;">
+                                <DropDownListEvents TValue="int" TItem="Models.FirmaCurierat.TipComenzi"></DropDownListEvents>
+                                <DropDownListFieldSettings Text="tip" Value="id_tip"></DropDownListFieldSettings>
+                            </Syncfusion.Blazor.DropDowns.SfDropDownList>
+                        </div>
+                    </div>
+                    <div style="margin-bottom: 1rem" class="row">
+                        <div class="col-md-2 align-items-center d-flex" style="margin-right:-5px; margin-left:550px;">
+                            <RadzenButton Click="@update" ButtonStyle="ButtonStyle.Danger" Text="Edit order">
+                            </RadzenButton>
+                        </div>
+                        <div class="col-md-2" style=" margin-left:-80px">
+                            <RadzenButton ButtonType="Radzen.ButtonType.Button" ButtonStyle="ButtonStyle.Danger" Text="Back" Click="@goBack">
+                            </RadzenButton>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+        </ChildContent>
+    </RadzenContent>
+</RadzenCard>

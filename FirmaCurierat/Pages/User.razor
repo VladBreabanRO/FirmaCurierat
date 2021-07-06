@@ -1,0 +1,53 @@
+﻿@page "/user"
+@layout LoginLayout
+@using Radzen
+@using Radzen.Blazor
+@using Syncfusion.Blazor.Data
+@using Syncfusion.Blazor.DropDowns
+@using Syncfusion.Blazor.Spinner
+@using Syncfusion.Blazor.Navigations
+@using Syncfusion.Blazor.SplitButtons
+@using Syncfusion.Blazor.Lists
+@using Syncfusion.Blazor.Inputs
+@using Syncfusion.Blazor.Buttons
+@using Syncfusion.Blazor.Calendars
+@using Syncfusion.Blazor.Popups
+@using Syncfusion.Blazor.Cards
+@inherits FirmaCurierat.Pages.UserComponent
+    <div class="center-screen">
+        <div class="row">
+            <div class="col-lg-12 col-md-12" style="width:600px;">
+                <SfCard ID="SideCard">
+                    <CardContent>
+                        <div style="margin-bottom: 1rem" class="row">
+                            <div class="col-md-2 align-items-center d-flex" style="margin-left:50px;">
+                                <RadzenLabel Text="Order AWB " style="font-weight: 500; font-size: large;" />
+                            </div>
+                            <div class="col-md-7" style="">
+                                <RadzenTextBox @bind-Value="@insertedAwb" MaxLength="255" style="width: 100%; " Name="awb">
+                                </RadzenTextBox>
+                               
+                            </div>
+                        </div>
+                    </CardContent>
+                    <CardFooter>
+                        <div class="col-md-auto align-items-center d-flex" style="margin-left:200px;">
+                            <RadzenButton ButtonStyle="ButtonStyle.Danger" Text="Check Information" Click="@goToInfo">
+                            </RadzenButton>
+                        </div>
+                    </CardFooter>
+                </SfCard>
+            </div>
+        </div>
+    </div>
+    <style>
+        .center-screen {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            min-height: 100vh;
+            text-align: center;
+        }
+    </style>

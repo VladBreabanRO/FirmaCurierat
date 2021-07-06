@@ -1,0 +1,156 @@
+﻿@page "/view-general"
+
+@layout MainLayout
+@inherits FirmaCurierat.Pages.ViewInfoAboutDriversAndDispecerComponent
+
+@using Radzen
+@using Radzen.Blazor
+@using Syncfusion.Blazor.Grids
+@using Radzen.Blazor
+
+@using Syncfusion.Blazor.Cards
+@using Syncfusion.Blazor.DropDowns
+@using Syncfusion.Blazor
+@using Syncfusion.Blazor.Popups
+@using Syncfusion.Blazor.Navigations
+@using Syncfusion.Blazor.Notifications
+
+<RadzenHeading Size="H5" Text="General information about drivers and supervisor" Style="font-size:x-large;margin-top:60px; font-weight:bold;">
+
+</RadzenHeading>
+
+<hr />
+<br />
+
+<div style="margin-top:30px;">
+    <Syncfusion.Blazor.Cards.SfCard>
+
+
+
+        <SfGrid DataSource="interestList" ShowColumnChooser="true" AllowSorting="true" AllowResizing="true" AllowPaging="true"
+                AllowSelection="true">
+
+            <GridEvents TValue="infoForTheGrid"></GridEvents>
+            <GridPageSettings PageCount="6" PageSize="5"></GridPageSettings>
+
+            <GridSelectionSettings Type="Syncfusion.Blazor.Grids.SelectionType.Single"></GridSelectionSettings>
+
+            <GridColumns>
+                <GridColumn Field=@nameof(infoForTheGrid.nume) AutoFit="true" HeaderText="Driver Name" TextAlign="Syncfusion.Blazor.Grids.TextAlign.Left" Width="120"></GridColumn>
+                <GridColumn Field=@nameof(infoForTheGrid.prenume) AutoFit="true" HeaderText="Driver Surname" TextAlign="Syncfusion.Blazor.Grids.TextAlign.Left" Width="120"></GridColumn>
+                <GridColumn Field=@nameof(infoForTheGrid.nume_dispecer) AutoFit="true" HeaderText="Supervisor name" TextAlign="Syncfusion.Blazor.Grids.TextAlign.Left" Width="120"></GridColumn>
+
+            </GridColumns>
+        </SfGrid>
+    </Syncfusion.Blazor.Cards.SfCard>
+</div>
+<RadzenHeading Size="H5" Text="Supervisors and orders" Style="font-size:x-large;margin-top:60px; font-weight:bold;">
+
+</RadzenHeading>
+
+<hr />
+<br />
+<div style="margin-top:30px;">
+    <Syncfusion.Blazor.Cards.SfCard>
+
+
+
+        <SfGrid DataSource="list2" ShowColumnChooser="true" AllowSorting="true" AllowResizing="true" AllowPaging="true"
+                AllowSelection="true">
+
+            <GridEvents TValue="forGrid2"></GridEvents>
+            <GridPageSettings PageCount="6" PageSize="5"></GridPageSettings>
+
+            <GridSelectionSettings Type="Syncfusion.Blazor.Grids.SelectionType.Single"></GridSelectionSettings>
+
+            <GridColumns>
+                <GridColumn Field=@nameof(forGrid2.nume_dispecer) AutoFit="true" HeaderText="Supervisor Name" TextAlign="Syncfusion.Blazor.Grids.TextAlign.Left" Width="120"></GridColumn>
+                <GridColumn Field=@nameof(forGrid2.id_comanda) AutoFit="true" HeaderText="Order ID" TextAlign="Syncfusion.Blazor.Grids.TextAlign.Left" Width="120"></GridColumn>
+
+            </GridColumns>
+        </SfGrid>
+    </Syncfusion.Blazor.Cards.SfCard>
+</div>
+<RadzenHeading Size="H5" Text="Supervisors with more than 5 orders" Style="font-size:x-large;margin-top:60px; font-weight:bold;">
+
+</RadzenHeading>
+
+<hr />
+<br />
+<div style="margin-top:0px; width:500px;">
+    <Syncfusion.Blazor.Cards.SfCard>
+
+
+
+        <SfGrid DataSource="list3" ShowColumnChooser="true" AllowSorting="true" AllowResizing="true" AllowPaging="true"
+                AllowSelection="true">
+
+            <GridEvents TValue="forGrid3"></GridEvents>
+            <GridPageSettings PageCount="6" PageSize="5"></GridPageSettings>
+
+            <GridSelectionSettings Type="Syncfusion.Blazor.Grids.SelectionType.Single"></GridSelectionSettings>
+
+            <GridColumns>
+                <GridColumn Field=@nameof(forGrid3.nume_dispecer) AutoFit="true" HeaderText="Supervisor Name" TextAlign="Syncfusion.Blazor.Grids.TextAlign.Left" Width=""></GridColumn>
+
+
+            </GridColumns>
+        </SfGrid>
+    </Syncfusion.Blazor.Cards.SfCard>
+</div>
+<RadzenHeading Size="H5" Text="Clients and awb orders" Style="font-size:x-large;margin-top:60px; font-weight:bold;">
+
+</RadzenHeading>
+
+<hr />
+<br />
+<div style="margin-top:0px; width:500px;">
+    <Syncfusion.Blazor.Cards.SfCard>
+
+
+
+        <SfGrid DataSource="list4" ShowColumnChooser="true" AllowSorting="true" AllowResizing="true" AllowPaging="true"
+                AllowSelection="true">
+
+            <GridEvents TValue="forGrid4"></GridEvents>
+            <GridPageSettings PageCount="6" PageSize="5"></GridPageSettings>
+
+            <GridSelectionSettings Type="Syncfusion.Blazor.Grids.SelectionType.Single"></GridSelectionSettings>
+
+            <GridColumns>
+                <GridColumn Field=@nameof(forGrid4.nume) AutoFit="true" HeaderText="Client Name" TextAlign="Syncfusion.Blazor.Grids.TextAlign.Left" Width=""></GridColumn>
+                <GridColumn Field=@nameof(forGrid4.prenume) AutoFit="true" HeaderText="Client Surname" TextAlign="Syncfusion.Blazor.Grids.TextAlign.Left" Width=""></GridColumn>
+                <GridColumn Field=@nameof(forGrid4.awb) AutoFit="true" HeaderText="Order AWB" TextAlign="Syncfusion.Blazor.Grids.TextAlign.Left" Width=""></GridColumn>
+            </GridColumns>
+        </SfGrid>
+    </Syncfusion.Blazor.Cards.SfCard>
+</div>
+<RadzenHeading Size="H5" Text="Drivers with cars with fabrication data less than 2020" Style="font-size:x-large;margin-top:60px; font-weight:bold;">
+
+</RadzenHeading>
+
+<hr />
+<br />
+
+<div style="margin-top:0px;">
+    <Syncfusion.Blazor.Cards.SfCard>
+
+
+
+        <SfGrid DataSource="list5" ShowColumnChooser="true" AllowSorting="true" AllowResizing="true" AllowPaging="true"
+                AllowSelection="true">
+
+            <GridEvents TValue="forGrid5"></GridEvents>
+            <GridPageSettings PageCount="6" PageSize="5"></GridPageSettings>
+
+            <GridSelectionSettings Type="Syncfusion.Blazor.Grids.SelectionType.Single"></GridSelectionSettings>
+
+            <GridColumns>
+                <GridColumn Field=@nameof(forGrid5.nume) AutoFit="true" HeaderText="Driver Name" TextAlign="Syncfusion.Blazor.Grids.TextAlign.Left" Width=""></GridColumn>
+                <GridColumn Field=@nameof(forGrid5.prenume) AutoFit="true" HeaderText="Driver Surname" TextAlign="Syncfusion.Blazor.Grids.TextAlign.Left" Width=""></GridColumn>
+                <GridColumn Field=@nameof(forGrid5.marca) AutoFit="true" HeaderText="Car" TextAlign="Syncfusion.Blazor.Grids.TextAlign.Left" Width=""></GridColumn>
+                <GridColumn Field=@nameof(forGrid5.an) AutoFit="true" HeaderText="Car year" TextAlign="Syncfusion.Blazor.Grids.TextAlign.Left" Width=""></GridColumn>
+            </GridColumns>
+        </SfGrid>
+    </Syncfusion.Blazor.Cards.SfCard>
+</div>

@@ -1,0 +1,63 @@
+﻿@inherits LayoutComponentBase
+
+@using Radzen
+@using Radzen.Blazor
+
+
+  
+<RadzenDialog />
+<RadzenNotification />
+
+
+<div class="sidebar">
+    <RadzenHeader style="background-color: #ffffff">
+        <ChildContent>
+            <div class="row justify-content-start align-items-center">
+                <div class="col-md-6 d-flex align-items-center" style="color: #060619">
+
+                    <RadzenImage Path="assets/images/logo.png" style="height: 49.25px; width: 219px">
+                    </RadzenImage>
+                </div>
+
+            </div>
+        </ChildContent>
+    </RadzenHeader>
+    <RadzenSidebar>
+        <ChildContent>
+            <RadzenPanelMenu style="height: 100%">
+                <ChildContent>
+                    <RadzenPanelMenuItem Icon="home" Path="quickactions" Selected="true" Text="Home">
+                    </RadzenPanelMenuItem>
+
+
+                    <RadzenPanelMenuItem Path="counter" Text="Drivers" Icon="person">
+
+                    </RadzenPanelMenuItem>
+
+                    <RadzenPanelMenuItem Path="clientsandOrders" Text="Orders Management" Icon="add_task">
+
+                    </RadzenPanelMenuItem>
+                    <RadzenPanelMenuItem Path="driversandorders" Text="Drivers and orders" Icon="drive_eta">
+
+                    </RadzenPanelMenuItem>
+                </ChildContent>
+            </RadzenPanelMenu>
+        </ChildContent>
+    </RadzenSidebar>
+    <RadzenFooter style="background-color: #ffffff; margin-top:50px;">
+        <ChildContent>
+            <RadzenLabel Text="Breaban Vladut-Marian,Ⓒ 2021">
+            </RadzenLabel>
+        </ChildContent>
+    </RadzenFooter>
+</div>
+
+<div class="main">
+  
+
+    <div class="content px-3">
+        @Body
+
+    </div>
+
+</div>

@@ -1,0 +1,136 @@
+﻿@page "/quickactions"
+
+@using Radzen
+@using Radzen.Blazor
+@using Syncfusion.Blazor.Data
+@using Syncfusion.Blazor.DropDowns
+@using Syncfusion.Blazor.Spinner
+@using Syncfusion.Blazor.Navigations
+@using Syncfusion.Blazor.SplitButtons
+@using Syncfusion.Blazor.Lists
+@using Syncfusion.Blazor.Inputs
+@using Syncfusion.Blazor.Buttons
+@using Syncfusion.Blazor.Calendars
+@using Syncfusion.Blazor.Popups
+@inherits FirmaCurierat.Pages.QuickActionsComponent
+
+
+
+<br />
+<br />
+<RadzenContent Container="main">
+    <ChildContent>
+        <RadzenHeading Size="H1" Text="Welcome to the fastest delivery company">
+        </RadzenHeading>
+        <RadzenHeading Size="H3" Text="There are some quick actions:">
+        </RadzenHeading>
+        <br />
+        <br />
+        <br />
+
+
+        <SfAccordion>
+            <AccordionItems>
+
+
+                <AccordionItem Header="Expensive orders" IconCss="e-icons e-order">
+                    <ContentTemplate>
+                        <div style="margin-bottom: 1rem" class="row">
+                            <div class="col-md-2">
+                                <RadzenLabel Component="add_order" style="font-weight: 500; font-size: medium;" Text="We are proud about">
+                                </RadzenLabel>
+                            </div>
+                            <div class="col-md-1" style="margin-left:-30px;">
+                                <SfButton CssClass="e-primary" IconCss="e-icons  e-timelinemonth" OnClick="@viewOrderValues">Check</SfButton>
+                            </div>
+                        </div>
+                    </ContentTemplate>
+                </AccordionItem>
+                <AccordionItem Header="View orders by city" IconCss="e-icons e-drivers">
+                    <ContentTemplate>
+                        <div style="margin-bottom: 1rem" class="row">
+                            <div class="col-md-2">
+                                <RadzenLabel Component="distribute_orders" style="font-weight: 500; font-size: medium;" Text="Click here to view orders">
+                                </RadzenLabel>
+                            </div>
+                            <div class="col-md-1" style="margin-left:-30px;">
+                                <SfButton CssClass="e-primary" OnClick="@viewOrders">View</SfButton>
+                            </div>
+                        </div>
+                    </ContentTemplate>
+                </AccordionItem>
+                <AccordionItem Header="General informations about the drivers and supervisors" IconCss="e-icons e-info">
+                    <ContentTemplate>
+                        <div style="margin-bottom: 1rem" class="row">
+                            <div class="col-md-2">
+                                <RadzenLabel Component="company_info" style="font-weight: 500; font-size: medium;" Text="Click here to view information">
+                                </RadzenLabel>
+                            </div>
+                            <div class="col-md-1" style="margin-left:-30px;">
+                                <SfButton CssClass="e-success" IconCss="e-icons e-info" OnClick="@viewGeneral">Info</SfButton>
+                            </div>
+                        </div>
+                    </ContentTemplate>
+                </AccordionItem>
+                <AccordionItem Header="Add a car" IconCss="e-icons e-info">
+                    <ContentTemplate>
+                        <div style="margin-bottom: 1rem" class="row">
+                            <div class="col-md-2">
+                                <RadzenLabel Component="add_Car" style="font-weight: 500; font-size: medium;" Text="Click here to add a car">
+                                </RadzenLabel>
+                            </div>
+                            <div class="col-md-1" style="margin-left:-30px;">
+                                <SfButton CssClass="e-success" IconCss="e-icons e-info" OnClick="@registerCar">Add</SfButton>
+                            </div>
+                        </div>
+                    </ContentTemplate>
+                </AccordionItem>
+            </AccordionItems>
+        </SfAccordion>
+        <RadzenChart>
+            <RadzenColumnSeries Data="@comenzi" CategoryProperty="awb" Title="value" LineType="LineType.Dashed" ValueProperty="valoare_comanda" />
+       
+            <RadzenColumnOptions Radius="5" />
+            <RadzenValueAxis >
+                <RadzenGridLines Visible="true" />
+                <RadzenAxisTitle Text="value" />
+            </RadzenValueAxis>
+        </RadzenChart>
+    </ChildContent>
+</RadzenContent>
+
+<style>
+    .e-timelinemonth:before {
+        content: '\e7d9';
+        color: black;
+        position: relative top:3px
+    }
+
+    .e-order:before {
+        content: '\e73e';
+        color: black;
+        position: relative top:3px
+    }
+
+    .e-employee:before {
+        content: '\e72a';
+        color: black;
+        position: relative top:3px
+    }
+
+    .e-drivers:before {
+        content: '\e7c6';
+        color: black;
+        position: relative top:3px
+    }
+
+    .e-info:before {
+        content: '\e729';
+        color: black;
+        position: relative top:3px
+    }
+
+    .e-plus-icon::before {
+        content: '\e729'
+    }
+</style>

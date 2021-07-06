@@ -1,0 +1,136 @@
+﻿@page "/register"
+@layout LoginLayout
+@using Radzen
+@using Radzen.Blazor
+@using Syncfusion.Blazor.Data
+@using Syncfusion.Blazor.DropDowns
+@using Syncfusion.Blazor.Spinner
+@using Syncfusion.Blazor.Navigations
+@using Syncfusion.Blazor.SplitButtons
+@using Syncfusion.Blazor.Lists
+@using Syncfusion.Blazor.Inputs
+@using Syncfusion.Blazor.Buttons
+@using Syncfusion.Blazor.Calendars
+@using Syncfusion.Blazor.Popups
+@using Syncfusion.Blazor.Cards
+@inherits FirmaCurierat.Pages.RegisterComponent
+<div class="center-screen">
+    <div class="row">
+        <div class="col-lg-12 col-md-12" style="width:600px;">
+            <SfCard ID="SideCard">
+             
+                <RadzenImage Path="assets/images/logo.png" style="height: 49.25px; width: 219px">
+                </RadzenImage>
+                <b>
+                    <div style="font:large;">
+
+                        <RadzenHeading Size="H2" Text="Registering new user">
+                        </RadzenHeading>
+
+                    </div>
+
+                </b>
+
+                <CardContent>
+                    <div style="margin-bottom: 1rem" class="row">
+                        <div class="col-md-2 align-items-center d-flex" style="margin-left:50px;">
+                            <RadzenLabel Text="Username:" style="font-weight: 500; font-size:large;" />
+                        </div>
+                        <div class="col-md-7">
+                            <RadzenTextBox @bind-Value="@username" MaxLength="255" style="width: 100%" Name="Username">
+                            </RadzenTextBox>
+                            <RadzenRequiredValidator Component="Username" style="width: 199.828125px" Text="Username is mandatory.">
+                            </RadzenRequiredValidator>
+                        </div>
+                    </div>
+                    <div style="margin-bottom: 1rem" class="row">
+                        <div class="col-md-2 align-items-center d-flex" style="margin-left:50px;">
+                            <RadzenLabel Text="Password:" style="font-weight: 500; font-size: large;" />
+                        </div>
+                        <div class="col-md-7" style="">
+                            <RadzenTextBox @bind-Value="@password" Type="password" MaxLength="255" style="width: 100%; " Name="Password">
+                            </RadzenTextBox>
+                            <RadzenRequiredValidator Component="Password" style="width: 199.828125px" Text="Password is mandatory.">
+                            </RadzenRequiredValidator>
+                        </div>
+                    </div>
+                    <div style="margin-bottom: 1rem" class="row">
+                        <div class="col-md-2 align-items-center d-flex" style="margin-left:50px;">
+                            <RadzenLabel Text="Nume:" style="font-weight: 500; font-size: large;" />
+                        </div>
+                        <div class="col-md-7" style="">
+                            <RadzenTextBox @bind-Value="@client.nume"  MaxLength="255" style="width: 100%; " Name="nume">
+                            </RadzenTextBox>
+                            <RadzenRequiredValidator Component="nume" style="width: 199.828125px" Text="Password is mandatory.">
+                            </RadzenRequiredValidator>
+                        </div>
+                    </div>
+                    <div style="margin-bottom: 1rem" class="row">
+                        <div class="col-md-2 align-items-center d-flex" style="margin-left:50px;">
+                            <RadzenLabel Text="Prenume:" style="font-weight: 500; font-size: large;" />
+                        </div>
+                        <div class="col-md-7" style="">
+                            <RadzenTextBox @bind-Value="@client.prenume"  MaxLength="255" style="width: 100%; " Name="prenume">
+                            </RadzenTextBox>
+                            <RadzenRequiredValidator Component="prenume" style="width: 199.828125px" Text="Password is mandatory.">
+                            </RadzenRequiredValidator>
+                        </div>
+                    </div>
+                    <div style="margin-bottom: 1rem" class="row">
+                        <div class="col-md-2 align-items-center d-flex" style="margin-left:50px;">
+                            <RadzenLabel Text="Adresa:" style="font-weight: 500; font-size: large;" />
+                        </div>
+                        <div class="col-md-7" style="">
+                            <RadzenTextBox @bind-Value="@client.adresa"  MaxLength="255" style="width: 100%; " Name="adresa">
+                            </RadzenTextBox>
+                            <RadzenRequiredValidator Component="adresa" style="width: 199.828125px" Text="Password is mandatory.">
+                            </RadzenRequiredValidator>
+                        </div>
+                    </div>
+                    <div style="margin-bottom: 1rem" class="row">
+                        <div class="col-md-2 align-items-center d-flex" style="margin-left:50px;">
+                            <RadzenLabel Text="Mail:" style="font-weight: 500; font-size: large;" />
+                        </div>
+                        <div class="col-md-7" style="">
+                            <RadzenTextBox @bind-Value="@client.mail"  MaxLength="255" style="width: 100%; " Name="mail">
+                            </RadzenTextBox>
+                            <RadzenRequiredValidator Component="mail" style="width: 199.828125px" Text="Password is mandatory.">
+                            </RadzenRequiredValidator>
+                        </div>
+                    </div>
+                </CardContent>
+                <CardFooter>
+                    <CardFooterContent>
+                        <div style="margin-bottom: 1rem" class="row">
+                            
+                            <div class="col-md-7" style="margin-left:50px;">
+                                <RadzenButton ButtonStyle="ButtonStyle.Danger" Text="Register" Click="@registerUser">
+                                </RadzenButton>
+                            </div>
+                        </div>
+
+                    </CardFooterContent>
+                </CardFooter>
+            </SfCard>
+        </div>
+    </div>
+</div>
+
+
+
+@code {
+    //  protected NavigationManager UriHelper { get; set; }
+    protected LogIn user;
+
+}
+<style>
+    .center-screen {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        min-height: 100vh;
+        text-align: center;
+    }
+</style>

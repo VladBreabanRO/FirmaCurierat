@@ -1,0 +1,98 @@
+﻿@page "/clientsandOrders"
+
+
+@layout MainLayout
+@inherits FirmaCurierat.Pages.ClientsandOrdersComponent
+
+@using Radzen
+@using Radzen.Blazor
+@using Syncfusion.Blazor.Grids
+@using Radzen.Blazor
+@inject TooltipService tooltipService
+@using Syncfusion.Blazor.Cards
+
+@using Syncfusion.Blazor
+@using Syncfusion.Blazor.Popups
+@using Syncfusion.Blazor.Navigations
+@using Syncfusion.Blazor.Notifications
+
+<RadzenContent Container="main">
+    <ChildContent>
+
+        <RadzenHeading Size="H1" Text="Manage orders" Style="margin-top:60px;">
+        </RadzenHeading>
+        <div class="row">
+            <div class="col-md-12">
+                @*<RadzenButton Icon="add_circle_outline" style="margin-bottom: 10px" Size="Radzen.ButtonSize.Small" Text="Add mail server" Click="@addMailSetup">
+                    </RadzenButton>*@
+                <MatThemeProvider Theme="@tema">
+                    <MatButton OnClick="@goToAdd" Raised="true" style="margin-bottom: 10px" Icon="person_pin">Register an orders</MatButton>
+                </MatThemeProvider>
+                <hr />
+                <br />
+
+                <Syncfusion.Blazor.Cards.SfCard>
+
+
+
+                    <SfGrid @ref="grid" DataSource="@clients" ShowColumnChooser="true" AllowSorting="true" AllowResizing="true" AllowPaging="true"
+                            AllowSelection="true">
+
+                        <GridEvents TValue="Models.FirmaCurierat.Clienti"></GridEvents>
+                        <GridPageSettings PageCount="6" PageSize="5"></GridPageSettings>
+
+                        <GridSelectionSettings Type="Syncfusion.Blazor.Grids.SelectionType.Single"></GridSelectionSettings>
+
+                        <GridColumns>
+                            <GridColumn Field=@nameof(Models.FirmaCurierat.Clienti.nume) AutoFit="true" HeaderText="Name" TextAlign="Syncfusion.Blazor.Grids.TextAlign.Left" Width="120"></GridColumn>
+                            <GridColumn Field=@nameof(Models.FirmaCurierat.Clienti.prenume) AutoFit="true" HeaderText="Surname" TextAlign="Syncfusion.Blazor.Grids.TextAlign.Left" Width="120"></GridColumn>
+
+                            <GridColumn Field=@nameof(Models.FirmaCurierat.Clienti.adresa) AutoFit="true" HeaderText="Address" TextAlign="Syncfusion.Blazor.Grids.TextAlign.Left" Width="120"></GridColumn>
+                            <GridColumn Field=@nameof(Models.FirmaCurierat.Clienti.id_client) AutoFit="true" HeaderText="Client ID" TextAlign="Syncfusion.Blazor.Grids.TextAlign.Left" Width="120"></GridColumn>
+                            <GridColumn HeaderText="Quick actions" Width="200px" TextAlign="Syncfusion.Blazor.Grids.TextAlign.Center">
+                                <Template Context="curieratContext">
+
+                                    <RadzenButton Attributes="@Atr1" ButtonStyle="ButtonStyle.Info" Icon="info" Size="Radzen.ButtonSize.Small" Click="@((args) => updateStuff(args, curieratContext))" >
+                                    </RadzenButton>
+                                    <RadzenButton Attributes="@Atr2" ButtonStyle="ButtonStyle.Info" Icon="shopping_chart" Size="Radzen.ButtonSize.Small" Click="@((args) => updateOrder(args, curieratContext))">
+                                    </RadzenButton>
+                                    <RadzenButton ButtonStyle="ButtonStyle.Danger" Icon="close" Size="Radzen.ButtonSize.Small" Click="@((args) => GridDeleteButtonClick(args, curieratContext))">
+                                    </RadzenButton>
+                                </Template>
+                            </GridColumn>
+
+
+                        </GridColumns>
+                    </SfGrid>
+                </Syncfusion.Blazor.Cards.SfCard>
+
+            </div>
+        </div>
+    </ChildContent>
+</RadzenContent>
+@code
+{
+    public string activationLabel = "";
+    MatTheme tema = new MatTheme()
+    {
+        Primary = "#d50000",
+        Secondary = "#212121"
+    };
+    private Dictionary<string, object> Atr1 = new Dictionary<string, object>()
+{
+        {"title","Update Client Information" }
+
+    };
+    private Dictionary<string, object> Atr2 = new Dictionary<string, object>()
+{
+        {"title","Update Order Information" }
+
+    };
+    ElementReference htmlButton;
+    RadzenButton radzenButton;
+
+    void ShowTooltip(ElementReference elementReference, TooltipOptions options = null) => tooltipService.Open(elementReference, "Update Order", options);
+}
+
+
+

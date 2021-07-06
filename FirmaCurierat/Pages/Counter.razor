@@ -1,0 +1,75 @@
+﻿@page "/counter"
+
+
+@layout MainLayout
+@inherits FirmaCurierat.Pages.CounterComponent
+
+@using Radzen
+@using Radzen.Blazor
+@using Syncfusion.Blazor.Grids
+@using Radzen.Blazor
+
+@using Syncfusion.Blazor.Cards
+
+@using Syncfusion.Blazor
+@using Syncfusion.Blazor.Popups
+@using Syncfusion.Blazor.Navigations
+@using Syncfusion.Blazor.Notifications
+
+<RadzenContent Container="main">
+    <ChildContent>
+        <RadzenHeading Size="H1" Text="Manage your drivers" Style="margin-top:60px;">
+        </RadzenHeading>
+        <div class="row">
+            <div class="col-md-12">
+                @*<RadzenButton Icon="add_circle_outline" style="margin-bottom: 10px" Size="Radzen.ButtonSize.Small" Text="Add mail server" Click="@addMailSetup">
+                    </RadzenButton>*@
+                <MatThemeProvider Theme="@tema">
+                    <MatButton OnClick="@goToAdd" Raised="true" style="margin-bottom: 10px" Icon="person_pin">Register a new driver</MatButton>
+                </MatThemeProvider>
+                <hr />
+                <br />
+
+                <Syncfusion.Blazor.Cards.SfCard>
+                   
+
+
+                    <SfGrid @ref="@grid0" DataSource="@drivers" ShowColumnChooser="true"  AllowSorting="true" AllowResizing="true" AllowPaging="true"
+                            AllowSelection="true">
+
+                        <GridEvents TValue="Models.FirmaCurierat.Soferi"></GridEvents>
+                        <GridPageSettings PageCount="6" PageSize="5"></GridPageSettings>
+
+                        <GridSelectionSettings Type="Syncfusion.Blazor.Grids.SelectionType.Single"></GridSelectionSettings>
+                      
+                        <GridColumns>
+                            <GridColumn Field=@nameof(Models.FirmaCurierat.Soferi.nume) AutoFit="true" HeaderText="Name" TextAlign="Syncfusion.Blazor.Grids.TextAlign.Left" Width="120"></GridColumn>
+                            <GridColumn Field=@nameof(Models.FirmaCurierat.Soferi.prenume) AutoFit="true" HeaderText="Surname" TextAlign="Syncfusion.Blazor.Grids.TextAlign.Left" Width="120"></GridColumn>
+
+                            <GridColumn Field=@nameof(Models.FirmaCurierat.Soferi.an_angajare) AutoFit="true" HeaderText="Employment year" TextAlign="Syncfusion.Blazor.Grids.TextAlign.Left" Width="120"></GridColumn>
+                            <GridColumn Field=@nameof(Models.FirmaCurierat.Soferi.id_masina) AutoFit="true" HeaderText="Car" TextAlign="Syncfusion.Blazor.Grids.TextAlign.Left" Width="120"></GridColumn>
+                            <GridColumn Field=@nameof(Models.FirmaCurierat.Soferi.id_dispecer) AutoFit="true" HeaderText="Coordinator" TextAlign="Syncfusion.Blazor.Grids.TextAlign.Left" Width="120"></GridColumn>
+                            <GridColumn  Width="70px" TextAlign="Syncfusion.Blazor.Grids.TextAlign.Center">
+                                <Template Context="curieratContext">
+                                    <RadzenButton ButtonStyle="ButtonStyle.Danger" Icon="close" Size="Radzen.ButtonSize.Small" Click="@((args) =>GridDeleteButtonClick(args, curieratContext))" @onclick:stopPropagation="true">
+                                    </RadzenButton>
+                                </Template>
+                            </GridColumn>
+
+                        </GridColumns>
+                    </SfGrid>
+                </Syncfusion.Blazor.Cards.SfCard>
+
+            </div>
+        </div>
+    </ChildContent>
+</RadzenContent>
+@code
+{
+    public string activationLabel = "";
+    MatTheme tema = new MatTheme()
+    {
+        Primary = "#d50000",
+        Secondary = "#212121"
+    };
+}

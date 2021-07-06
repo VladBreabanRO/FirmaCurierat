@@ -1,0 +1,63 @@
+﻿@using Radzen;
+@using Radzen.Blazor;
+<RadzenHeader style="background-color: #ffffff">
+    <ChildContent>
+        <div class="row justify-content-start align-items-center">
+            <div class="col-md-6 d-flex align-items-center" style="color: #060619">
+
+                <RadzenImage Path="assets/images/logo.png" style="height: 49.25px; width: 219px">
+                </RadzenImage>
+            </div>
+
+        </div>
+    </ChildContent>
+</RadzenHeader>
+<div class="@NavMenuCssClass" @onclick="ToggleNavMenu">
+    <ul class="nav flex-column">
+        <li class="nav-item px-3">
+            <NavLink class="nav-link" href="quickactions" Match="NavLinkMatch.All">
+                <span class="oi oi-home" aria-hidden="true"></span> Quick Menu
+            </NavLink>
+        </li>
+        <li class="nav-item px-3">
+            <NavLink class="nav-link" href="counter">
+                <span class="oi oi-person" aria-hidden="true"></span> Drivers
+            </NavLink>
+        </li>
+
+
+
+
+    </ul>
+
+</div>
+<hr />
+<footer >
+    <RadzenFooter style="background-color: #ffffff;">
+        <ChildContent>
+            <RadzenLabel Text="Breaban Vladut-Marian,Ⓒ 2020">
+            </RadzenLabel>
+        </ChildContent>
+    </RadzenFooter>
+</footer>
+
+
+@code {
+    private bool collapseNavMenu = true;
+
+    private string NavMenuCssClass => collapseNavMenu ? "collapse" : null;
+
+    private void ToggleNavMenu()
+    {
+        collapseNavMenu = !collapseNavMenu;
+    }
+
+}
+<style>
+    footer {
+        position: fixed;
+        bottom: 0;
+        width:300px;
+        font:italic;
+    }
+</style>
